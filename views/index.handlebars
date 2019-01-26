@@ -1,1 +1,24 @@
-<p> check 1 check check mic check </p>
+<div class= "container">   
+
+<div>
+    <h1>Eat Da Burger</h1>
+</div>
+
+<div>
+    <h3>Menu Items</h3>
+</div>
+
+<div>
+    {{#each burgers1}}
+    {{#unless this.devoured}}
+   
+    <div>
+        <p>{{this.id}}. {{this.burger_name}}</p>
+        <button type="submit">Devour!</button>
+    </div>
+   {{/unless}}
+    {{/each}}
+</div>
+
+
+</div>
