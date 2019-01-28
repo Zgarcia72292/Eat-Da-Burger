@@ -3,7 +3,7 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
 var PORT = process.env.PORT || 8080;
-var routes = require("../Eat-Da-Burger/controllers/burgers_controller.js");
+var routes = require("./controllers/burgers_controller");
 var app = express();
 var methodOverride = require("method-override");
 //middleware
