@@ -61,6 +61,7 @@ var orm = {
       cb(result);
     });
   },
+ 
   //this last method is for updating an exist burger// 
   //we will set the devoured value to true at the item in the
   //burger table with the corresponding id value// 
