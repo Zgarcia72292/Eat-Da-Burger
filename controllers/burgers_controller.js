@@ -17,8 +17,7 @@ router.get("/", function(req,res){
 });
 
 //here we handle a post request, where the id in the string will be the same
-//as the corresponding burger selected. The parameters "objcolval" and "condition"
-// are passed back as the object property "devoured" and "id". After the request 
+//as the corresponding burger selected. The parameters for "id" will be passed back. After the request 
 //is made and is successful the page will be refreshed// 
 router.put("/burgers/:id", function(req,res){
     var id = req.params.id;
