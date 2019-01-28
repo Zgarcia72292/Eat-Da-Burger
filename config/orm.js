@@ -13,20 +13,20 @@ function printQuestionMarks(num) {
 return arr.toString();
 }
 
-// function objToSql(ob) {
+function objToSql(ob) {
  
-// var arr = [];
-// for (var key in ob) {
-//     var value = ob[key];
-//   if (Object.hasOwnProperty.call(ob, key)) {
-//        if (typeof value === "string" && value.indexOf(" ") >= 0) {
-//         value = "'" + value + "'";
-//       }
-//        arr.push(key + "=" + value);
-//     }
-//   }
-// return arr.toString();
-// }
+var arr = [];
+for (var key in ob) {
+    var value = ob[key];
+  if (Object.hasOwnProperty.call(ob, key)) {
+       if (typeof value === "string" && value.indexOf(" ") >= 0) {
+        value = "'" + value + "'";
+      }
+       arr.push(key + "=" + value);
+    }
+  }
+return arr.toString();
+}
 
 
 var orm = {
@@ -64,22 +64,21 @@ var orm = {
   //this last method is for updating an exist burger// 
   //we will set the devoured value to true at the item in the
   //burger table with the corresponding id value// 
-  updateOne: function(table, condition, cb) {
-    var queryString = "UPDATE " + table;
-
-    queryString += " SET devoured=true";
-    queryString += " WHERE id=" + condition + ";";
-  
-
+  updateOne: function(id, cb) {
+    var queryString = "UPDATE burgers SET devoured = true WHERE id = ?";
+//since the table and column value are going to be static, there is no need to use empty variables.
+//the only variable in the mysql query will be the "WHERE" parameter which is going to be
+//the burger's id.// 
+   
     console.log(queryString);
-    connection.query(queryString, function(err, result) {
+    connection.query(queryString, id, function(err, result) {
       if (err) {
         throw err;
       }
 
       cb(result);
     });
-  },
+  }
 
 };
 module.exports = orm;

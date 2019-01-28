@@ -16,15 +16,17 @@ router.get("/", function(req,res){
    
 });
 
-//here we handle a post request, where "burgerId" will be the name
-//of the field where a corresponding id will be selected. After
-//the request is made and is successful the page will be refreshed// 
-router.put("/burgers/update", function(req,res){
-    burger.update(req.body.burgerId, function(result){
-        console.log(result);
+//here we handle a post request, where the id in the string will be the same
+//as the corresponding burger selected. The parameters "objcolval" and "condition"
+// are passed back as the object property "devoured" and "id". After the request 
+//is made and is successful the page will be refreshed// 
+router.put("/burgers/:id", function(req,res){
+    var id = req.params.id;
+    burger.update(id, function () {
         res.redirect("/");
-    })
+    });
 });
+
  
 
 

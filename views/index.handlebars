@@ -14,7 +14,15 @@
    
     <div>
         <p>{{this.id}}. {{this.burger_name}}</p>
-        <button type="submit">Devour!</button>
+
+
+        <form action = "/burgers/{{this.id}}?_method=PUT" method= "POST"   class="button-size">
+  
+  
+        <button type="submit"  class="updateBtn" name="burgerId" >Devour!</button>
+
+      </form>
+
     </div>
    {{/unless}}
     {{/each}}
@@ -22,3 +30,26 @@
 
 
 </div>
+
+{{!-- <script>
+    $(function() {
+  $(".updateBtn").on("submit", function(event) {
+    var id = $(this).data("id");
+   
+
+    
+
+    // Send the PUT request.
+    $.ajax("/burgers/" + id, {
+      type: "PUT"
+     
+    }).then(
+      function() { 
+       
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  })
+    });
+</script> --}}

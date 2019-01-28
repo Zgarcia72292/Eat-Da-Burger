@@ -10,8 +10,10 @@ var burger = {
     },
 
     update: function(id, cb){
-        orm.updateOne("burgers", id, cb );
+        orm.updateOne(id, function(res){
+            cb(res);
+        } );
     }
 }
 
-module.exports = burger; 
+module.exports = burger;  
